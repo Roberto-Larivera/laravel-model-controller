@@ -37,12 +37,11 @@ in web la Route diventa cosi:
 // dopo '/' soi inseriscew un array con il controller da utilizzare e , con il nome della funzione
 Route::get('/', [MainController::class, 'index']);
 
-Route::get('/movie/{index}', function ($index) {
-    $movies = Movie::all();
-    $movie = $movies[$index];
+Route::get('/movie/{id}', function ($id) {
+    $movie = Movie::findOrFail($id); // recuperare solo l'elemento con id specifico
 
     return view('partials.movie',compact('movie'));
-})->name('movie');
+})->name('pippo')->where('id', '[0-9]+');
 
 Route::get('/welcome', function () {
     return view('welcome');

@@ -1,6 +1,6 @@
 @foreach ($movies as $item)
     <div class="col">
-        <a href="{{ route('movie',$loop->index) }}" class="text-decoration-none text-bg-light">
+        <a href="{{ route('pippo',$item->id) }}" class="text-decoration-none text-bg-light">
             <div class="card">
                 <div class="card-header">
                     ID: {{ $item->id }}
