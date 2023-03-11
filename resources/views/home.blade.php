@@ -1,7 +1,7 @@
 @extends('layout.app') {{-- estende in layout  --}}
 
 @section('head_title')
-    Home
+    Laravel Model Controller
 @endsection {{-- segnaposto dentro head  --}}
 
 @section('body_main')
@@ -11,26 +11,8 @@
         <h1>
             Books
         </h1>
-        <div class="d-flex flex-wrap gap-5">
-            @foreach ($movies as $item)
-                <ul>
-                    <li>
-                        ID: {{ $item->id }}
-                    </li>
-                    <li>
-                        Original Title:{{ $item->original_title }}
-                    </li>
-                    <li>
-                        Nationality: {{ $item->nationality }}
-                    </li>
-                    <li>
-                        Date: {{ $item->date }}
-                    </li>
-                    <li>
-                        Vote: {{ $item->vote }}
-                    </li>
-                </ul>
-            @endforeach
+        <div class="row row-cols-4 g-5 ">
+            @include('partials.card')
         </div>
     </main>
 @endsection

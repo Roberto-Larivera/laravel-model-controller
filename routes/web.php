@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 //si inserisce l'alias se la classe già esiste con lo stesso nome
 use App\http\Controllers\Guest\MainController as MainController;
 
+use App\Models\Movie;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +36,13 @@ in web la Route diventa cosi:
 
 // dopo '/' soi inseriscew un array con il controller da utilizzare e , con il nome della funzione
 Route::get('/', [MainController::class, 'index']);
+
+Route::get('/movie/{index}', function ($index) {
+    $movies = Movie::all();
+    $movie = $movies[$index];
+
+    return view('partials.movie',compact('movie'));
+})->name('movie');
 
 Route::get('/welcome', function () {
     return view('welcome');
