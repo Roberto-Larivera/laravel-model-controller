@@ -38,6 +38,6 @@ in web la Route diventa cosi:
 
 // dopo '/' soi inseriscew un array con il controller da utilizzare e , con il nome della funzione
 
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'index'])->name('home');
 
 Route::get('/movie/{id}',[MainController::class, 'show'])->name('pippo')->where('id', '[0-9]+');

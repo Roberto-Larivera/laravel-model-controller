@@ -52,7 +52,12 @@ class MainController extends Controller
     public function show($id)
     {
         //$movies = Movie::all();
-        $movie = Movie::find($id);
+
+        // se l'id non esiste ti da null
+        //$movie = Movie::find($id);
+
+        // se l'id non esiste ti da 404 not found
+        $movie = Movie::findOrFail($id);
          
         return view('partials.movie', ['movie' => $movie]);
     }

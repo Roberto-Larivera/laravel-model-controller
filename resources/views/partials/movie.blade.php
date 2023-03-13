@@ -16,8 +16,8 @@
                     </h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col align-self-center">
+            <div class="row justify-content-center">
+                <div class="col-auto">
                     <div class="card">
                         <div class="card-header">
                             ID: {{ $movie->id }}
@@ -36,6 +36,7 @@
                                 Vote: {{ $movie->vote }}
                             </li>
                         </ul>
+                        <a href="{{ route('home') }}" class="btn btn-outline-danger">Torna alla lista</a>
                     </div>
                 </div>
             </div>
