@@ -48,4 +48,12 @@ class MainController extends Controller
          */
         return view('home', compact('movies'));
     }
+    
+    public function show($id)
+    {
+        //$movies = Movie::all();
+        $movie = Movie::find($id);
+         
+        return view('partials.movie', ['movie' => $movie]);
+    }
 }

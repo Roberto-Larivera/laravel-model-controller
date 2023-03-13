@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 //bisogna importare il controller
 //si inserisce l'alias se la classe già esiste con lo stesso nome
+// Controllers
 use App\http\Controllers\Guest\MainController as MainController;
 
+// Modules
 use App\Models\Movie;
 
 /*
@@ -35,14 +37,7 @@ in web la Route diventa cosi:
 
 
 // dopo '/' soi inseriscew un array con il controller da utilizzare e , con il nome della funzione
+
 Route::get('/', [MainController::class, 'index']);
 
-Route::get('/movie/{id}', function ($id) {
-    $movie = Movie::findOrFail($id); // recuperare solo l'elemento con id specifico
-
-    return view('partials.movie',compact('movie'));
-})->name('pippo')->where('id', '[0-9]+');
-
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+Route::get('/movie/{id}',[MainController::class, 'show'])->name('pippo')->where('id', '[0-9]+');
